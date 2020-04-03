@@ -24,7 +24,7 @@
           user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+const instructorsArray = ["tetondan", "dustinmyers", "justsml", "luishrd", "bigknell"];
 
 class UserCard {
   constructor(user){
@@ -73,6 +73,7 @@ class UserCard {
   }
 }
 
+
 const cardsHolder = document.querySelector(".cards")
 axios
   .get("https://api.github.com/users/Freet8707")
@@ -81,6 +82,16 @@ axios
     let userCard = new UserCard(response)
     cardsHolder.appendChild(userCard)
   })
+  
+instructorsArray.forEach((element) => {
+  axios
+  .get(`https://api.github.com/users/${element}`)
+  .then(response => {
+    let userCard = new UserCard(response)
+    cardsHolder.appendChild(userCard)
+  })
+})
+  
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
 
