@@ -48,6 +48,8 @@ In this project we are going to be accessing the GitHub API and building a socia
 
 * After you have successfully added your own card to the DOM, we will get a list of your followers and programmatically add cards for them as well. Follow the instructions in GitHubCard/index.js. 
 
+* Project Complete at MVP
+
 ### Stretch Goals:
 
 * Instead of manually creating a list of followers, do it programmatically. Create a function that requests the followers data from the API after it has received your data and create a card for each of your followers. Hint: you can chain promises.
