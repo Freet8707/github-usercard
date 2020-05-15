@@ -25,6 +25,7 @@
 */
 
 const instructorsArray = ["tetondan", "dustinmyers", "justsml", "luishrd", "bigknell"];
+const cardsHolder = document.querySelector(".cards")
 
 class UserCard {
   constructor(user){
@@ -69,26 +70,28 @@ class UserCard {
     this.card.appendChild(this.cardImg)
     this.card.appendChild(this.cardContent)
 
-    return this.card
+    cardsHolder.appendChild(this.card)
+
+    return /*this.card*/
   }
 }
 
 
-const cardsHolder = document.querySelector(".cards")
+
 axios
   .get("https://api.github.com/users/Freet8707")
   .then(response => {
     // console.log(response)
     let userCard = new UserCard(response)
-    cardsHolder.appendChild(userCard)
+    // cardsHolder.appendChild(userCard)
   })
-  
+
 instructorsArray.forEach((element) => {
   axios
   .get(`https://api.github.com/users/${element}`)
   .then(response => {
-    let userCard = new UserCard(response)
-    cardsHolder.appendChild(userCard)
+    let instructorCard = new UserCard(response)
+    // cardsHolder.appendChild(instructorCard)
   })
 })
   
